@@ -53,7 +53,7 @@ def worker_pool(url, num_threads, num_requests, user_agents):
 # Fungsi utama
 def main():
     global TARGET_URL, NUM_THREADS, RATE_LIMIT
-    print("=====+CYBERNETIC WOLF+=====")
+    print("~~~~~MEMEY~~~~~")
     TARGET_URL = input("target URL: ")
     if not TARGET_URL:
         print("Masukkan URL dengan benar")
