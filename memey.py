@@ -65,11 +65,11 @@ def main():
     if not TARGET_URL:
         print("Masukkan URL dengan benar")
         sys.exit(1)
-    NUM_THREADS = int(input("threads: "))
+    NUM_THREADS = int(input("THREADS: "))
     if NUM_THREADS <= 0:
         print("Threads harus lebih besar dari 0")
         sys.exit(1)
-    rate_limit_input = input("rate limit (ex: 100): ")
+    rate_limit_input = input("RATE LIMIT : 200): ")
     if rate_limit_input.endswith('ms'):
         RATE_LIMIT = int(rate_limit_input[:-2])
     elif rate_limit_input.endswith('s'):
@@ -83,11 +83,11 @@ def main():
     if not user_agents:
         print("User agent list kosong")
         sys.exit(1)
-    print(f"Starting attack pada {TARGET_URL} dengan {NUM_THREADS} threads")
+    print(f"Sending threads to {TARGET_URL} dengan {NUM_THREADS} threads")
     start_time = datetime.now()
     worker_pool(TARGET_URL, NUM_THREADS, 100, user_agents)
     end_time = datetime.now()
-    print(f"Attack selesai dalam {end_time - start_time}")
+    print(f"Attack done in {end_time - start_time}")
 
 if __name__ == "__main__":
     main()
