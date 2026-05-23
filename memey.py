@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
 # Konfigurasi
-TARGET_URL = ""
+WEB_URL = ""
 NUM_THREADS = 0
 RATE_LIMIT = 0
 USER_AGENT_FILE = "user_agents.txt"
@@ -53,7 +53,7 @@ def worker_pool(url, num_threads, num_requests, user_agents):
 
 # Fungsi utama
 def main():
-    global TARGET_URL, NUM_THREADS, RATE_LIMIT
+    global WEB_URL, NUM_THREADS, RATE_LIMIT
     print("""
     \033[91m
     ╔╔  ╔═╝ ╔╔  ╔═╝ ║ ║
@@ -61,8 +61,8 @@ def main():
     ╝╝╝ ══╝ ╝╝╝ ══╝  ╝ 
     \033[0m
     """)
-    WEB_URL = input("target URL: ")
-    if not TARGET_URL:
+    WEB_URL = input("WEB URL: ")
+    if not WEB_URL:
         print("Masukkan URL dengan benar")
         sys.exit(1)
     NUM_THREADS = int(input("threads: "))
