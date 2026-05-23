@@ -61,7 +61,7 @@ def main():
 ╝╝╝══╝╝╝╝══╝ ╝ 
     \033[0m
     """)
-    TARGET_URL = input("target URL: ")
+    TARGET_URL = input("TARGET URL: ")
     if not TARGET_URL:
         print("Masukkan URL dengan benar")
         sys.exit(1)
@@ -69,7 +69,7 @@ def main():
     if NUM_THREADS <= 0:
         print("Threads harus lebih besar dari 0")
         sys.exit(1)
-    rate_limit_input = input("rate limit (ex: 100ms): ")
+    rate_limit_input = input("rate limit (ex: 100): ")
     if rate_limit_input.endswith('ms'):
         RATE_LIMIT = int(rate_limit_input[:-2])
     elif rate_limit_input.endswith('s'):
