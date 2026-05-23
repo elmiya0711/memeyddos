@@ -83,7 +83,7 @@ def main():
     if not user_agents:
         print("User agent list kosong")
         sys.exit(1)
-    print(f"Sending threads to {TARGET_URL} dengan {NUM_THREADS} threads")
+    print(f"Sending threads to {TARGET_URL} with {NUM_THREADS} threads")
     start_time = datetime.now()
     worker_pool(TARGET_URL, NUM_THREADS, 100, user_agents)
     end_time = datetime.now()
