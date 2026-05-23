@@ -69,7 +69,7 @@ def main():
     if NUM_THREADS <= 0:
         print("Threads harus lebih besar dari 0")
         sys.exit(1)
-    rate_limit_input = input("RATE LIMIT : 200): ")
+    rate_limit_input = input("RATE LIMIT : 50 - 100): ")
     if rate_limit_input.endswith('ms'):
         RATE_LIMIT = int(rate_limit_input[:-2])
     elif rate_limit_input.endswith('s'):
